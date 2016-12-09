@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import Nav from './Nav.jsx';
+import Outbox from './Outbox.jsx';
 
 export default class Main extends Component {
 	constructor(props) {
@@ -27,9 +27,9 @@ export default class Main extends Component {
 	render() {
 		return(
       <div className="main-div">
-        <h1 className="title">Rob Is Late Again</h1>
+        <h1 className="title">Sigma</h1>
         <div className="input-form">
-        <Nav />
+        <Outbox />
         		<input 	type="text"
         						placeholder="Answer away!"
         						onChange={this.handleChange}

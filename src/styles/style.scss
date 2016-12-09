@@ -1,4 +1,5 @@
-$jellygreen: #01c3a7;
+$sigmablue: #325067;
+$lightblue: #7B909F;
 $darkgrey: #616d71;
 $lightgrey: #c0c7ce;
 
@@ -10,7 +11,7 @@ body {
 //Styles for Main component
 
 .title {
-	background: $jellygreen;
+	background: $sigmablue;
 	color: #FFF;
 	padding: 1em 0.5em;
 	width: 6em;
@@ -19,7 +20,7 @@ body {
 }
 
 .signature {
-	color: $jellygreen;
+	color: $sigmablue;
 	opacity: 0.6;
 	text-align: center;
 	font-weight: bold;
@@ -42,56 +43,26 @@ input {
 }
 
 submit {
-  background: $jellygreen;
+  background: $sigmablue;
   border-radius: 0 5px 5px 0;
-  border: $jellygreen 3px solid;
+  border: $sigmablue 3px solid;
   color: #FFF;
   font-size: 1.30em;
   padding: 0.2em;
 }
 
-//Styles for Answer component
+//Styles for Outbox component
+.outbox {
+	margin: auto;
+	width: 50%;
+}
 
-.answer-div {
-	margin: 3em auto 0 auto;
-	align: center;
-	border-top: $jellygreen 3px solid;
-	width: 50em;
-	.left-q {
-	  width: 50%;
-	  float: left;
-	  h4 {
-	  	text-align: center;
-	  }
-  }
-  .right-q {
-	  width: 50%;
-	  float: right;
-	  h4 {
-	  	text-align: center;
-	  }
-  }
+.outbox-button {
+	background: $lightblue;
+	align: right;
+	border-radius: 0.3em;
+	border: none;
+	color: #FFF;
 }
 
 
-//Styles for dropdown
-.drop-down {
-  text-align: center;
-  list-style: none;
-  font-size: 1.30em;
-  color: $darkgrey;
-  text-decoration: none;
-}
-
-//Styles for snippet & continued
-.snippet {
-	padding-right: 0.4em;
-	word-wrap: break-word; 
-	margin-bottom: 1em;
-}
-
-.continued {
-	padding-left: 0.4em;
-	word-wrap: break-word; 
-	margin-bottom: 1em;
-}
