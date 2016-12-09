@@ -1,5 +1,5 @@
-# Rob Is Late Again
-A simple React app for tracking and viewing how late your loved ones are, if you have loved ones are that are always freakin' late.
+# Sigma
+A simple React app for organizing and displaying 'merits'.
 
 ## Stack
 - Node/Express
@@ -8,7 +8,7 @@ A simple React app for tracking and viewing how late your loved ones are, if you
 - Sass
 
 ## Run
-To run Rob Is Late Again please
+To run Sigma please
 
 ```
 npm install
@@ -17,4 +17,4 @@ then
 ```
 node index.js
 ```
-& enjoy viewing the analytics of how late your loved ones always are at localhost:3000
+then enjoy submitting & organizing merits at localhost:3000

@@ -1,19 +1,18 @@
 {
-  "name": "jelly",
+  "name": "sigma",
   "version": "1.0.0",
-  "description": "An elegant solution for dividing strings.",
+  "description": "An elegant solution for organization",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/lwonsower/jelly.git"
+    "url": "git://github.com/lwonsower/sigma.git"
   },
   "keywords": [
-    "questions",
-    "jelly",
-    "strings"
+    "organization",
+    "sigma"
   ],
   "author": "Lucy Wonsower",
   "license": "ISC",

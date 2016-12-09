@@ -23,7 +23,20 @@ module.exports = {
   		{
         test: /\.scss$/,
         loaders: ["style", "css", "sass"],
-      }
+      },
+      {
+        test: /\.html$/,
+        exclude: /node_modules/,
+        loader: 'html-loader',
+      },
+      {
+        test: /\.(png|jpg|jpeg|gif|svg)$/,
+        loader: 'url',
+        query: {
+          limit: 8192,
+          name: 'images/[name].[ext]?[hash]',
+        },
+      },
   	]
   }
 };

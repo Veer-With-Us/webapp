@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import Answer from './Answer.jsx';
+import Nav from './Nav.jsx';
 
 export default class Main extends Component {
 	constructor(props) {
@@ -27,16 +27,15 @@ export default class Main extends Component {
 	render() {
 		return(
       <div className="main-div">
-        <h1 className="title">ANSWER JELLY</h1>
-        <h4 className="signature">By Lucy Wonsower</h4>
+        <h1 className="title">Rob Is Late Again</h1>
         <div className="input-form">
+        <Nav />
         		<input 	type="text"
         						placeholder="Answer away!"
         						onChange={this.handleChange}
         						 />
         		<submit onClick={this.submitAnswer}>Answer</submit>
         </div>
-        	{this.state.resp ? <Answer resp={this.state.resp} /> : false }
       </div>
 		)
 	};
