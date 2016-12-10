@@ -29,40 +29,44 @@ body {
 
 .input-form {
 	text-align: center;
-	margin: 3em 0;
 }
 
 input {
 	color: $darkgrey;
-	// background: $lightgrey;
 	border-radius: 5px 0 0 5px;
-	width: 10em;
 	font-size: 1.30em;
 	outline: none;
-	padding: 0.2em;
-}
-
-submit {
-  background: $sigmablue;
-  border-radius: 0 5px 5px 0;
-  border: $sigmablue 3px solid;
-  color: #FFF;
-  font-size: 1.30em;
-  padding: 0.2em;
 }
 
 //Styles for Outbox component
 .outbox {
 	margin: auto;
 	width: 50%;
+	text-align: center;
+}
+
+.buttons {
+  padding-bottom: 3em;
 }
 
 .outbox-button {
 	background: $lightblue;
-	align: right;
+	outline: none;
+	margin: 0 0.5em 0 0.5em;
 	border-radius: 0.3em;
 	border: none;
 	color: #FFF;
 }
+
+.dropdown {
+	color: $sigmablue;
+	font-size: 1.30em;
+	outline: none;
+	background: none;
+	border: none;
+	height: 2.5em;
+	width: 10em;
+}
+
 
 
