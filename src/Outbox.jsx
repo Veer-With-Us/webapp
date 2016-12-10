@@ -22,15 +22,13 @@ export default class Outbox extends Component {
   };
 
   deleteRow() {
-  	let nextState = [];
+  	let nextState = { rows: [] };
   	for (var i=0; i<this.state.rows.length; i++){
       let temp = '_' + i.toString();
-      console.log(this[temp].state);
       if (!this[temp].state.checked) {
-        nextState.push(this.state.rows[i]);
+        nextState.rows.push(this.state.rows[i]);
       }
   	}
-  	console.log(nextState)
   	this.setState(nextState);
   }
 
@@ -50,10 +48,7 @@ export default class Outbox extends Component {
 	            <th>Email</th>
 	            <th>Merit</th>
 	          </tr>
-	    	    {this.state.rows.map((item) => {
-	    	    	console.log(item)
-              return item
-	    	    })}
+	    	    {this.state.rows}
 	    	  </tbody>
         </table>
       </div>
