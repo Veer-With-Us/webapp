@@ -7,7 +7,7 @@ export default class Outbox extends Component {
   constructor(props){
     super(props);
     this.state = {
-    	rows: [<OutInput key='0' ref={ a => this._0 = a }/>],
+    	rows: { 0 : <OutInput key='0' ref={ a => this._0 = a }/> },
     	uniqueID: 1
     };
 
@@ -17,25 +17,26 @@ export default class Outbox extends Component {
 
   addRow() {
     let nextState = this.state;
-    let counter = '_' + (this.state.uniqueID).toString();
-    nextState.rows.push(<OutInput key={this.state.uniqueID} ref={ a => this[counter] = a } />);
+    let id = this.state.uniqueID;
+    let counter = '_' + (id).toString();
+    nextState.rows[id] = <OutInput key={this.state.uniqueID} ref={ a => this[counter] = a } />;
     this.state.uniqueID++;
     this.setState(nextState);
   };
 
   deleteOrSend(send) {
-  	let nextState = { rows: [] };
+  	let nextState = { rows: {} };
   	for (var i=0; i<this.state.uniqueID; i++){
       let temp = '_' + i.toString();
-      	console.log("inside true", this[temp])
-      if (this[temp] === null) {
+      if (!this[temp]) {
       	continue;
       }
-	      if (this[temp] && !this[temp].state.checked) {
-	        nextState.rows.push(this.state.rows[i]);
-	      } else if(this[temp].state.checked && send) {
-	      	console.log("You sent the " + this[temp].state.selectedMerit + " merit to " + this[temp].state.email + "!");
-	      }  	
+	    if (!this[temp].state.checked) {
+	    	console.log("inside add to undelete", this.state.rows[i])
+	      nextState.rows[i] = this.state.rows[i];
+	    } else if(this[temp].state.checked && send) {
+	    	console.log("You sent the " + this[temp].state.selectedMerit + " merit to " + this[temp].state.email + "!");
+	    }  	
 	  }
   	this.setState(nextState);
   }
@@ -56,7 +57,9 @@ export default class Outbox extends Component {
 	            <th>Email</th>
 	            <th>Merit</th>
 	          </tr>
-	    	    {this.state.rows}
+	          {Object.keys(this.state.rows).map((key) => {
+    					return this.state.rows[key];
+						})}
 	    	  </tbody>
         </table>
       </div>
