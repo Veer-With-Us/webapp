@@ -6,7 +6,7 @@ export default class OutInput extends Component {
 		this.state = {
 			checked: false,
 			email: '',
-			selectedMerit: ''
+			selectedMerit: 'First Commit'
 		}
 		this.handleCheck = this.handleCheck.bind(this);
 		this.addEmail = this.addEmail.bind(this);
@@ -42,10 +42,10 @@ export default class OutInput extends Component {
         </td>
         <td><input type="text" onChange={this.addEmail} /></td>
         <td><select onChange={this.addMerit} className="dropdown">
-            <option value="First Commit">First Commit</option>
-            <option value="100 Commits">100 Commits</option>
-            <option value="1000 Commits">1000 Commits</option>
-          </select></td>
+              <option value="First Commit">First Commit</option>
+              <option value="100 Commits">100 Commits</option>
+              <option value="1000 Commits">1000 Commits</option>
+            </select></td>
       </tr>
     )
   }

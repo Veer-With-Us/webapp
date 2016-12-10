@@ -7,7 +7,8 @@ export default class Outbox extends Component {
   constructor(props){
     super(props);
     this.state = {
-    	rows: [<OutInput key='0' ref={ a => this._0 = a }/>]
+    	rows: [<OutInput key='0' ref={ a => this._0 = a }/>],
+    	uniqueID: 1
     };
 
     this.addRow = this.addRow.bind(this);
@@ -16,21 +17,26 @@ export default class Outbox extends Component {
 
   addRow() {
     let nextState = this.state;
-    let counter = '_' + (this.state.rows.length).toString();
-    nextState.rows.push(<OutInput key={this.state.rows.length} ref={ a => this[counter] = a } />);
+    let counter = '_' + (this.state.uniqueID).toString();
+    nextState.rows.push(<OutInput key={this.state.uniqueID} ref={ a => this[counter] = a } />);
+    this.state.uniqueID++;
     this.setState(nextState);
   };
 
   deleteOrSend(send) {
   	let nextState = { rows: [] };
-  	for (var i=0; i<this.state.rows.length; i++){
+  	for (var i=0; i<this.state.uniqueID; i++){
       let temp = '_' + i.toString();
-      if (!this[temp].state.checked) {
-        nextState.rows.push(this.state.rows[i]);
-      } else if(this[temp].state.checked && send) {
-      	console.log("You sent the " + this[temp].state.selectedMerit + " merit to " + this[temp].state.email + "!");
+      	console.log("inside true", this[temp])
+      if (this[temp] === null) {
+      	continue;
       }
-  	}
+	      if (this[temp] && !this[temp].state.checked) {
+	        nextState.rows.push(this.state.rows[i]);
+	      } else if(this[temp].state.checked && send) {
+	      	console.log("You sent the " + this[temp].state.selectedMerit + " merit to " + this[temp].state.email + "!");
+	      }  	
+	  }
   	this.setState(nextState);
   }
 
