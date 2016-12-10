@@ -11,7 +11,7 @@ export default class Outbox extends Component {
     };
 
     this.addRow = this.addRow.bind(this);
-    this.deleteRow = this.deleteRow.bind(this);
+    this.deleteOrSend = this.deleteOrSend.bind(this);
   };
 
   addRow() {
@@ -21,12 +21,14 @@ export default class Outbox extends Component {
     this.setState(nextState);
   };
 
-  deleteRow() {
+  deleteOrSend(send) {
   	let nextState = { rows: [] };
   	for (var i=0; i<this.state.rows.length; i++){
       let temp = '_' + i.toString();
       if (!this[temp].state.checked) {
         nextState.rows.push(this.state.rows[i]);
+      } else if(this[temp].state.checked && send) {
+      	console.log("You sent the " + this[temp].state.selectedMerit + " merit to " + this[temp].state.email + "!");
       }
   	}
   	this.setState(nextState);
@@ -38,8 +40,8 @@ export default class Outbox extends Component {
     	  <h3>Outbox</h3>
     	  <div className="buttons">
     	    <button onClick={this.addRow} className="outbox-button">Add Row</button>
-    	    <button onClick={this.deleteRow} className="outbox-button">Delete</button>
-    	    <button className="outbox-button">Send</button>
+    	    <button onClick={this.deleteOrSend.bind(this, false)} className="outbox-button">Delete</button>
+    	    <button onClick={this.deleteOrSend.bind(this, true)} className="outbox-button">Send</button>
     	  </div>
     	  <table>
     	    <tbody>

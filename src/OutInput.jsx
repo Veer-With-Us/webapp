@@ -5,10 +5,12 @@ export default class OutInput extends Component {
 		super(props);
 		this.state = {
 			checked: false,
-			email: ''
+			email: '',
+			selectedMerit: ''
 		}
 		this.handleCheck = this.handleCheck.bind(this);
 		this.addEmail = this.addEmail.bind(this);
+		this.addMerit = this.addMerit.bind(this);
 	}
 
   handleCheck() {
@@ -23,6 +25,12 @@ export default class OutInput extends Component {
     })
   }
 
+  addMerit(e) {
+  	this.setState({
+  		selectedMerit: e.target.value
+  	})
+  }
+
   render() {
     return (
       <tr>
@@ -33,10 +41,10 @@ export default class OutInput extends Component {
                />
         </td>
         <td><input type="text" onChange={this.addEmail} /></td>
-        <td><select className="dropdown">
-            <option value="1">First Commit</option>
-            <option value="2">100 Commits</option>
-            <option value="3">1000 Commits</option>
+        <td><select onChange={this.addMerit} className="dropdown">
+            <option value="First Commit">First Commit</option>
+            <option value="100 Commits">100 Commits</option>
+            <option value="1000 Commits">1000 Commits</option>
           </select></td>
       </tr>
     )
