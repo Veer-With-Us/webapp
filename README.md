@@ -1,5 +1,5 @@
 # Sigma
-A simple React app for organizing and displaying 'merits'.
+A simple React app for sending your employees 'merits'.
 
 ## Stack
 - Node/Express
@@ -17,4 +17,4 @@ then
 ```
 node index.js
 ```
-then enjoy submitting & organizing merits at localhost:3000
+then enjoy submitting merits to your team at localhost:3000
