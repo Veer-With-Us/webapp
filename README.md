@@ -1,4 +1,4 @@
-# Sigma
+# Sigma Outbox
 A simple React app for sending your employees 'merits'.
 
 ## Stack
@@ -8,7 +8,7 @@ A simple React app for sending your employees 'merits'.
 - Sass
 
 ## Run
-To run Sigma please
+To run Sigma Outbox please
 
 ```
 npm install
