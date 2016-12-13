@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 export default class OutInput extends Component {
 	constructor(props){
 		super(props);
+    console.log(this.props.objKey)
 		this.state = {
 			checked: false,
 			email: '',
@@ -40,7 +41,7 @@ export default class OutInput extends Component {
                onChange={this.handleCheck}
                />
         </td>
-        <td><input type="text" onChange={this.addEmail} /></td>
+        <td><input type="text" value={this.state.email} onChange={this.addEmail} /></td>
         <td><select onChange={this.addMerit} className="dropdown">
               <option value="First Commit">First Commit</option>
               <option value="100 Commits">100 Commits</option>

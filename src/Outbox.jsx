@@ -6,61 +6,49 @@ import OutboxInput from './OutboxInput.jsx';
 export default class Outbox extends Component {
   constructor(props){
     super(props);
-    let session = JSON.parse(sessionStorage.savedState);
-    console.log(session)
-    this.state = {
-    	rows: session || { 0 : { objKey: 0, key: 0, ref: (a) => this._0 = a } },
-    	uniqueID: 1
+    let session = sessionStorage.savedState ? JSON.parse(sessionStorage.savedState) : {
+      rows: { 0 : { objKey: 0, key: 0, ref: a => this._0 = a } },
+      uniqueID: 1
     };
+    this.state = session; 
 
     this.addRow = this.addRow.bind(this);
     this.deleteOrSend = this.deleteOrSend.bind(this);
-    // this.mapSavedRows = this.mapSavedRows.bind(this);
   };
-
-  // mapSavedRows() {
-  //   let rows = sessionStorage.savedState;
-  //   console.log(rows)
-  //   // Object.keys(rows).map((item) => {
-  //   //   let number = (rows[item].key).toString();
-  //   //   let counter = '_' + (number).toString();
-  //   //   console.log(number, counter)
-  //   //   // return { number:  <OutInput objKey=number key=counter ref={ a => this[number] = a }/> }
-  //   // })
-  // };
 
   addRow() {
     let nextState = this.state;
     let id = this.state.uniqueID;
-        console.log("inside addRow", id)
-    let counter = '_' + (id).toString();
-    nextState.rows[id] = { objKey: id, key: id, ref: a => this[counter] = a };
-    this.state.uniqueID++;
-    sessionStorage.setItem('savedState', JSON.stringify(nextState.rows));
-    console.log(sessionStorage)
+    let reference = '_' + (id).toString();
+    nextState.rows[id] = { objKey: id, key: id, ref: a => this[reference] = a };
+    nextState.uniqueID++;
+    sessionStorage.setItem('savedState', JSON.stringify(nextState));
     this.setState(nextState);
   };
 
   //The delete function and send function use the same logic, so it is called with a boolean to determine whether or not to console log the 'sent' message. 
 
   deleteOrSend(send) {
-  	let nextState = { rows: {} };
+  	let nextState = { rows: {}, uniqueID: this.state.uniqueID };
+    console.log(this.state.rows, this.state.uniqueID)
   	for (var i=0; i<this.state.uniqueID; i++){
       let temp = '_' + i.toString();
-      if (!this[temp]) {
+      if (!this.refs[temp]) {
       	continue;
       }
-	    if (!this[temp].state.checked) {
-	      nextState.rows[i] = this.state.rows[i];
-	    } else if(this[temp].state.checked && send) {
-	    	console.log("You sent the " + this[temp].state.selectedMerit + " merit to " + this[temp].state.email + "!");
+	    if (!this.refs[temp].state.checked) {
+        console.log(this.state.rows[i])
+	      nextState.rows[i] = { objKey: i, key: i, ref: a => this[temp] = a };
+	    } else if(this.refs[temp].state.checked && send) {
+	    	console.log("You sent the " + this.refs[temp].state.selectedMerit + " merit to " + this.refs[temp].state.email + "!");
 	    }  	
 	  }
-    // sessionStorage.setItem('savedState', JSON.stringify(nextState));
+    sessionStorage.setItem('savedState', JSON.stringify(nextState));
   	this.setState(nextState);
   }
 
   render() {
+        console.log(sessionStorage)
   	return ( 
   		<div className="outbox">
     	  <h3>Outbox</h3>
@@ -77,9 +65,8 @@ export default class Outbox extends Component {
 	            <th>Merit</th>
 	          </tr>
 	            {Object.keys(this.state.rows).map((item) => {
-                let num = item.toString();
-                let reference = '_' + num;
-                return <OutboxInput objKey={num} key={num} ref={reference} />;
+                let reference = '_' + item;
+                return <OutboxInput objKey={item} key={item} ref={reference} />;                
               })}
 	    	  </tbody>
         </table>
