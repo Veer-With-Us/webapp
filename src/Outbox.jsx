@@ -30,14 +30,12 @@ export default class Outbox extends Component {
 
   deleteOrSend(send) {
   	let nextState = { rows: {}, uniqueID: this.state.uniqueID };
-    console.log(this.state.rows, this.state.uniqueID)
   	for (var i=0; i<this.state.uniqueID; i++){
       let temp = '_' + i.toString();
       if (!this.refs[temp]) {
       	continue;
       }
 	    if (!this.refs[temp].state.checked) {
-        console.log(this.state.rows[i])
 	      nextState.rows[i] = { objKey: i, key: i, ref: a => this[temp] = a };
 	    } else if(this.refs[temp].state.checked && send) {
 	    	console.log("You sent the " + this.refs[temp].state.selectedMerit + " merit to " + this.refs[temp].state.email + "!");
@@ -48,10 +46,8 @@ export default class Outbox extends Component {
   }
 
   render() {
-        console.log(sessionStorage)
   	return ( 
   		<div className="outbox">
-    	  <h3>Outbox</h3>
     	  <div>
     	    <button onClick={this.addRow}>Add Row</button>
     	    <button onClick={this.deleteOrSend.bind(this, false)}>Delete</button>
