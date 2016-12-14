@@ -40,8 +40,7 @@ export default class OutInput extends Component {
         <td>
           <input type="checkbox"
                  checked={this.state.checked}
-                 onChange={this.handleCheck}
-                 />
+                 onChange={this.handleCheck} />
         </td>
         <td>
           <input type="text" 

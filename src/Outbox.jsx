@@ -46,7 +46,7 @@ export default class Outbox extends Component {
   }
 
   render() {
-  	return ( 
+    return ( 
       <div className="outbox">
     	  <div>
     	    <button onClick={this.addRow}>Add Row</button>
@@ -55,11 +55,11 @@ export default class Outbox extends Component {
     	  </div>
     	  <table>
     	    <tbody>
-	          <tr>
-	            <th> </th>
-	            <th>Email</th>
-	            <th>Merit</th>
-	          </tr>
+            <tr>
+              <th> </th>
+              <th>Email</th>
+              <th>Merit</th>
+            </tr>
               {Object.keys(this.state.rows).map((item) => {
                 let reference = '_' + item;
                 return <OutboxInput objKey={item} key={item} ref={reference} />;                
