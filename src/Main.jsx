@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 import Outbox from './Outbox.jsx';
 
 export default class Main extends Component {
-	render() {
-		return(
+  render() {
+    return(
       <div className="main-div">
         <h1 className="title">Sigma Outbox</h1>
         <h4><i>By Lucy Wonsower</i></h4>
@@ -12,6 +12,6 @@ export default class Main extends Component {
         <Outbox/>
         </div>
       </div>
-		)
-	};
+    )
+  };
 };

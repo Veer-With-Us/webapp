@@ -39,7 +39,7 @@ export default class Outbox extends Component {
         nextState.rows[i] = { objKey: i, key: i, ref: a => this[temp] = a };
       } else if(this.refs[temp].state.checked && send) {
         console.log("You sent the " + this.refs[temp].state.selectedMerit + " merit to " + this.refs[temp].state.email + "!");
-	    }  	
+      }  	
     }
     sessionStorage.setItem('savedState', JSON.stringify(nextState));
     this.setState(nextState);
