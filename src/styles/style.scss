@@ -9,7 +9,6 @@ body {
 }
 
 //Styles for Main component
-
 .main-div {
 	h4 {
 		text-align: center;
@@ -33,17 +32,6 @@ body {
 	font-style: italic;
 }
 
-.input-form {
-	text-align: center;
-}
-
-input {
-	color: $darkgrey;
-	border-radius: 5px 0 0 5px;
-	font-size: 1.30em;
-	outline: none;
-}
-
 //Styles for Outbox component
 .outbox {
 	margin: auto;
@@ -62,6 +50,18 @@ input {
 	}
 }
 
+//Styles for OutboxInput component
+.input-form {
+	text-align: center;
+}
+
+input {
+	color: $darkgrey;
+	border-radius: 5px 0 0 5px;
+	font-size: 1.30em;
+	outline: none;
+}
+
 .dropdown {
 	color: $sigmablue;
 	font-size: 1.30em;
@@ -71,6 +71,3 @@ input {
 	height: 2.5em;
 	width: 10em;
 }
-
-
-

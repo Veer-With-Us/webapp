@@ -29,25 +29,25 @@ export default class Outbox extends Component {
   //The delete function and send function use the same logic, so it is called with a boolean to determine whether or not to console log the 'sent' message. 
 
   deleteOrSend(send) {
-  	let nextState = { rows: {}, uniqueID: this.state.uniqueID };
-  	for (var i=0; i<this.state.uniqueID; i++){
+    let nextState = { rows: {}, uniqueID: this.state.uniqueID };
+    for (var i=0; i<this.state.uniqueID; i++){
       let temp = '_' + i.toString();
       if (!this.refs[temp]) {
-      	continue;
+        continue;
       }
-	    if (!this.refs[temp].state.checked) {
-	      nextState.rows[i] = { objKey: i, key: i, ref: a => this[temp] = a };
-	    } else if(this.refs[temp].state.checked && send) {
-	    	console.log("You sent the " + this.refs[temp].state.selectedMerit + " merit to " + this.refs[temp].state.email + "!");
+      if (!this.refs[temp].state.checked) {
+        nextState.rows[i] = { objKey: i, key: i, ref: a => this[temp] = a };
+      } else if(this.refs[temp].state.checked && send) {
+        console.log("You sent the " + this.refs[temp].state.selectedMerit + " merit to " + this.refs[temp].state.email + "!");
 	    }  	
-	  }
+    }
     sessionStorage.setItem('savedState', JSON.stringify(nextState));
-  	this.setState(nextState);
+    this.setState(nextState);
   }
 
   render() {
   	return ( 
-  		<div className="outbox">
+      <div className="outbox">
     	  <div>
     	    <button onClick={this.addRow}>Add Row</button>
     	    <button onClick={this.deleteOrSend.bind(this, false)}>Delete</button>
@@ -60,11 +60,11 @@ export default class Outbox extends Component {
 	            <th>Email</th>
 	            <th>Merit</th>
 	          </tr>
-	            {Object.keys(this.state.rows).map((item) => {
+              {Object.keys(this.state.rows).map((item) => {
                 let reference = '_' + item;
                 return <OutboxInput objKey={item} key={item} ref={reference} />;                
               })}
-	    	  </tbody>
+          </tbody>
         </table>
       </div>
     )
