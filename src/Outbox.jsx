@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
 import OutboxInput from './OutboxInput.jsx';
+import axios from 'axios';
 
 export default class Outbox extends Component {
   constructor(props){
@@ -10,7 +11,7 @@ export default class Outbox extends Component {
       rows: { 0 : { objKey: 0, key: 0, ref: a => this._0 = a } },
       uniqueID: 1
     };
-    this.state = session; 
+    this.state = session;
 
     this.addRow = this.addRow.bind(this);
     this.deleteOrSend = this.deleteOrSend.bind(this);
@@ -26,7 +27,7 @@ export default class Outbox extends Component {
     this.setState(nextState);
   };
 
-  //The delete function and send function use the same logic, so it is called with a boolean to determine whether or not to console log the 'sent' message. 
+  //The delete function and send function use the same logic, so it is called with a boolean to determine whether or not to console log the 'sent' message.
 
   deleteOrSend(send) {
     let nextState = { rows: {}, uniqueID: this.state.uniqueID };
@@ -38,15 +39,23 @@ export default class Outbox extends Component {
       if (!this.refs[temp].state.checked) {
         nextState.rows[i] = { objKey: i, key: i, ref: a => this[temp] = a };
       } else if(this.refs[temp].state.checked && send) {
+        axios({
+          method: 'post',
+          url: '/send',
+          data: {
+            email: this.refs[temp].state.email,
+            merit: this.refs[temp].state.selectedMerit
+          }
+        });
         console.log("You sent the " + this.refs[temp].state.selectedMerit + " merit to " + this.refs[temp].state.email + "!");
-      }  	
+      }
     }
     sessionStorage.setItem('savedState', JSON.stringify(nextState));
     this.setState(nextState);
   }
 
   render() {
-    return ( 
+    return (
       <div className="outbox">
     	  <div>
     	    <button onClick={this.addRow}>Add Row</button>
@@ -62,7 +71,7 @@ export default class Outbox extends Component {
             </tr>
               {Object.keys(this.state.rows).map((item) => {
                 let reference = '_' + item;
-                return <OutboxInput objKey={item} key={item} ref={reference} />;                
+                return <OutboxInput objKey={item} key={item} ref={reference} />;
               })}
           </tbody>
         </table>

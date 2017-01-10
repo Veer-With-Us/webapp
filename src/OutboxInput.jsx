@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import EmailError from './EmailError.jsx';
+
 export default class OutInput extends Component {
   constructor(props){
     super(props);
@@ -36,6 +38,7 @@ export default class OutInput extends Component {
   render() {
     sessionStorage.setItem(this.props.objKey, JSON.stringify(this.state));
     return (
+      <div>
       <tr>
         <td>
           <input type="checkbox"
@@ -43,13 +46,13 @@ export default class OutInput extends Component {
                  onChange={this.handleCheck} />
         </td>
         <td>
-          <input type="text" 
-                 value={this.state.email} 
+          <input type="text"
+                 value={this.state.email}
                  onChange={this.addEmail} />
         </td>
         <td>
-          <select value={this.state.selectedMerit} 
-                  onChange={this.addMerit} 
+          <select value={this.state.selectedMerit}
+                  onChange={this.addMerit}
                   className="dropdown">
             <option value="First Commit">First Commit</option>
             <option value="100 Commits">100 Commits</option>
@@ -57,6 +60,10 @@ export default class OutInput extends Component {
           </select>
         </td>
       </tr>
+        <EmailError checked={this.state.checked} email={this.state.email} />
+    </div>
+
+
     )
   }
 };
