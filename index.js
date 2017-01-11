@@ -21,7 +21,7 @@ app.get('*', (req, res) => {
 });
 
 app.post('/send', (req, res) => {
-  console.log("inside send", req.body)
+  console.log("Sending email to ", req.body.email)
   from_email = new helper.Email(`sigmaOutboxTest@example.com`);
   to_email = new helper.Email(req.body.email);
   subject = "You recieved a merit!"

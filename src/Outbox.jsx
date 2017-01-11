@@ -15,6 +15,7 @@ export default class Outbox extends Component {
 
     this.addRow = this.addRow.bind(this);
     this.deleteOrSend = this.deleteOrSend.bind(this);
+    this.verfiyEmail = this.verfiyEmail.bind(this);
   };
 
   addRow() {
@@ -36,7 +37,7 @@ export default class Outbox extends Component {
       if (!this.refs[temp]) {
         continue;
       }
-      if (!this.refs[temp].state.checked) {
+      if (!this.refs[temp].state.checked || !this.verfiyEmail(this.refs[temp].state.email)) {
         nextState.rows[i] = { objKey: i, key: i, ref: a => this[temp] = a };
       } else if(this.refs[temp].state.checked && send) {
         axios({
@@ -52,6 +53,11 @@ export default class Outbox extends Component {
     }
     sessionStorage.setItem('savedState', JSON.stringify(nextState));
     this.setState(nextState);
+  }
+
+  verfiyEmail(email) {
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(email);
   }
 
   render() {
