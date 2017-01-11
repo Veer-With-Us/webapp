@@ -78,7 +78,7 @@ export default class Outbox extends Component {
             </tbody>
               {Object.keys(this.state.rows).map((item) => {
                 let reference = '_' + item;
-                return <OutboxInput objKey={item} key={item} ref={reference} />;
+                return <OutboxInput verify={this.verfiyEmail} objKey={item} key={item} ref={reference} />;
               })}
         </table>
       </div>

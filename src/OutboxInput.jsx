@@ -62,7 +62,7 @@ export default class OutInput extends Component {
         </tr>
         <tr>
           <td colSpan="3">
-            <EmailError checked={this.state.checked} email={this.state.email} />
+            <EmailError verify={this.props.verify} checked={this.state.checked} email={this.state.email} />
           </td>
         </tr>
       </tbody>
