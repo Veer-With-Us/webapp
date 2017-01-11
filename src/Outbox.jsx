@@ -69,11 +69,11 @@ export default class Outbox extends Component {
               <th>Email</th>
               <th>Merit</th>
             </tr>
+            </tbody>
               {Object.keys(this.state.rows).map((item) => {
                 let reference = '_' + item;
                 return <OutboxInput objKey={item} key={item} ref={reference} />;
               })}
-          </tbody>
         </table>
       </div>
     )

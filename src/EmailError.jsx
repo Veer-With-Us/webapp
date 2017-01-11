@@ -23,7 +23,7 @@ export default class EmailError extends Component {
     }
     return (
       <div>
-        {warning ? "Please enter a valid email!" : false}
+        {warning ? "Please enter valid email!" : false }
       </div>
     )
   }

@@ -43,7 +43,7 @@ body {
 		margin: 3em 0.5em 3em 0.5em;
 		border-radius: 0.3em;
 		border: none;
-		color: #FFF;		
+		color: #FFF;
 	}
 	table {
 		margin: auto;
@@ -70,4 +70,8 @@ input {
 	border: none;
 	height: 2.5em;
 	width: 10em;
+}
+
+.errorClass {
+	color: red;
 }

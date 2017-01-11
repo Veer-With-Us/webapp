@@ -38,31 +38,34 @@ export default class OutInput extends Component {
   render() {
     sessionStorage.setItem(this.props.objKey, JSON.stringify(this.state));
     return (
-      <div>
-      <tr>
-        <td>
-          <input type="checkbox"
-                 checked={this.state.checked}
-                 onChange={this.handleCheck} />
-        </td>
-        <td>
-          <input type="text"
-                 value={this.state.email}
-                 onChange={this.addEmail} />
-        </td>
-        <td>
-          <select value={this.state.selectedMerit}
-                  onChange={this.addMerit}
-                  className="dropdown">
-            <option value="First Commit">First Commit</option>
-            <option value="100 Commits">100 Commits</option>
-            <option value="1000 Commits">1000 Commits</option>
-          </select>
-        </td>
-      </tr>
-        <EmailError checked={this.state.checked} email={this.state.email} />
-    </div>
-
+      <tbody>
+        <tr>
+          <td>
+            <input type="checkbox"
+                   checked={this.state.checked}
+                   onChange={this.handleCheck} />
+          </td>
+          <td>
+            <input type="text"
+                   value={this.state.email}
+                   onChange={this.addEmail} />
+          </td>
+          <td>
+            <select value={this.state.selectedMerit}
+                    onChange={this.addMerit}
+                    className="dropdown">
+              <option value="First Commit">First Commit</option>
+              <option value="100 Commits">100 Commits</option>
+              <option value="1000 Commits">1000 Commits</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td colSpan="3">
+            <EmailError checked={this.state.checked} email={this.state.email} />
+          </td>
+        </tr>
+      </tbody>
 
     )
   }
