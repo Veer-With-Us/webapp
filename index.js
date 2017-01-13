@@ -5,7 +5,7 @@ const path      = require('path');
 
 const app       = express();
 const compiler  = webpack(config);
-const sg        = require('sendgrid')(sendgrid.env.SENDGRID_API_KEY);
+const sg        = require('sendgrid')(process.env.SENDGRID_API_KEY);
 const helper    = require('sendgrid').mail;
 const bodyParser = require('body-parser');
 
