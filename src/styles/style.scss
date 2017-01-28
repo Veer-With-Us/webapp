@@ -1,11 +1,11 @@
-$sigmablue: #325067;
-$lightblue: #7B909F;
-$darkgrey: #616d71;
-$lightgrey: #c0c7ce;
+$veerblue: #537F99;
+$darkteal: #95BDC6;
+$lightteal: #B3D1D8;
 
 body {
 	font-family: Helvetica;
-	color: $darkgrey;
+	color: #FFF;
+	background-color: $veerblue;
 }
 
 //Styles for Main component
@@ -16,58 +16,9 @@ body {
 }
 
 .title {
-	background: $sigmablue;
 	color: #FFF;
 	padding: 1em 0.5em;
 	width: 6em;
 	text-align: center;
   margin: 1em auto 0 auto;
-}
-
-.signature {
-	color: $sigmablue;
-	opacity: 0.6;
-	text-align: center;
-	font-weight: bold;
-	font-style: italic;
-}
-
-//Styles for Outbox component
-.outbox {
-	margin: auto;
-	width: 50%;
-	text-align: center;
-	button {
-		background: $lightblue;
-		outline: none;
-		margin: 3em 0.5em 3em 0.5em;
-		border-radius: 0.3em;
-		border: none;
-		color: #FFF;
-	}
-	table {
-		margin: auto;
-	}
-}
-
-//Styles for OutboxInput component
-.input-form {
-	text-align: center;
-}
-
-input {
-	color: $darkgrey;
-	border-radius: 5px 0 0 5px;
-	font-size: 1.30em;
-	outline: none;
-}
-
-.dropdown {
-	color: $sigmablue;
-	font-size: 1.30em;
-	outline: none;
-	background: none;
-	border: none;
-	height: 2.5em;
-	width: 10em;
 }
