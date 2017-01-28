@@ -1,14 +1,14 @@
 {
-  "name": "sigma",
+  "name": "Veer",
   "version": "1.0.0",
-  "description": "An elegant solution for organization",
+  "description": "An education tool for young entrepreneurs",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/lwonsower/sigma.git"
+    "url": "https://github.com/Veer-With-Us/webapp.git"
   },
   "keywords": [
     "organization",
