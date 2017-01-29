@@ -22,3 +22,11 @@ body {
 	text-align: center;
   margin: 1em auto 0 auto;
 }
+
+.navbar {
+	position: fixed;
+	list-style: none;
+	a {
+		color: #FFF;
+	}
+}
